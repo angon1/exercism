@@ -26,17 +26,12 @@ def translate_codon(codon):
 def get_next_codon(list_of_codons):
     for codon in list_of_codons:
         amino_acid = translate_codon(codon)
-        # if amino_acid == "STOP":
-        #     print("dupa")
-        #     return amino_acid
-        # else:
         yield amino_acid
 
 
 def translate_list_of_codons(list_of_codons):
     list_of_amino_acids = []
     amino_acid_translator = get_next_codon(list_of_codons)
-    # amino_acid = next(amino_acid_translator)
     breakpoint = 0
     for amino_acid in amino_acid_translator:
         print(amino_acid)
@@ -54,9 +49,4 @@ def proteins(strand):
     list_of_codons = wrap(strand, 3)
     print("Given string = {} as list = {}".format(strand, list_of_codons))
     result = translate_list_of_codons(list_of_codons)
-    # print(list_of_codons)
-    # result2 = translate_2(list_of_codons)
-    # print("{}".format(result))
-    # print("Druga lista \n")
-    # print("{}".format(result2))
     return result
